@@ -1,6 +1,6 @@
-buildMouseEvent = (type, target, {which, ctrlKey}={}) ->
+buildMouseEvent = (type, target, {button, ctrlKey}={}) ->
   event = new MouseEvent(type, {bubbles: true, cancelable: true})
-  Object.defineProperty(event, 'which', get: -> which) if which?
+  Object.defineProperty(event, 'button', get: -> button) if button?
   Object.defineProperty(event, 'ctrlKey', get: -> ctrlKey) if ctrlKey?
   Object.defineProperty(event, 'target', get: -> target)
   Object.defineProperty(event, 'srcObject', get: -> target)
